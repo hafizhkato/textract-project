@@ -2,8 +2,11 @@ import React from 'react';
 import { Box } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { useAuthenticator } from '@aws-amplify/ui-react';
 
 const TopBar: React.FC = () => {
+  const { signOut } = useAuthenticator();
+
   return (
     <Box 
       sx={{
@@ -37,7 +40,7 @@ const TopBar: React.FC = () => {
         }
       }} />
 
-      <LogoutIcon sx={{ 
+      <LogoutIcon onClick={signOut} sx={{ 
         fontSize: { xs: 24, sm: 32 },
         color: '#ffffff',
         cursor: 'pointer',

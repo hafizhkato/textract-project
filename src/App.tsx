@@ -1,13 +1,19 @@
 import TopBar from './global/topbar';  // Add this import
-import Create from './pages/Create';  // Add this import
+import Create from './pages/Create';  
+import { Routes, Route } from "react-router-dom";// Add this import
 
 
 function App() {
   return (
-    <main style={{ paddingTop: '5vh' }}>
+    <div className='app'>
+      <main className='content' style={{ paddingTop: '5vh' }}>
       <TopBar />
-      <Create />
+      <Routes>
+        <Route path="/" element={<Create />} />
+      </Routes>
     </main>
+    </div>
+    
   );
 }
 
