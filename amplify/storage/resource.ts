@@ -1,7 +1,12 @@
-import { defineStorage } from '@aws-amplify/backend';
+import { defineStorage, defineFunction } from '@aws-amplify/backend';
 
 export const storage = defineStorage({
   name: 'UserStorages',
+  triggers: {
+    onUpload: defineFunction({
+      entry: './on-upload-handler.ts'
+    })
+  },
   access: (allow) => ({
     'private-images/{entity_id}/*': [
       allow.guest.to(['read']),
